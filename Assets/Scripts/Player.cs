@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
-
 public class Player : MonoBehaviour
 {
     Rigidbody2D rig;
@@ -17,8 +16,6 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();   
     }
-
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -54,12 +51,11 @@ public class Player : MonoBehaviour
         }
 
     }
-
     void Morte()
     {
         if(vida == 0)
         {
-            Destroy(this.gameObject, 0.5f);
+            Destroy(this.gameObject, 0.3f);
         }
     }
     void Pulo()
@@ -83,7 +79,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D colisao)
     {
-        if(colisao.gameObject.CompareTag("Ch„o"))
+        if(colisao.gameObject.CompareTag("Ch√£o"))
         {
             chao = true;
             puloDuplo = false;
@@ -92,7 +88,7 @@ public class Player : MonoBehaviour
         }
         if (colisao.gameObject.CompareTag("Espinho"))
         {
-            //anim.SetBool("hit", true);
+            anim.SetBool("hit", true);
             vida = vida - 1;
             anim.Play("Anima_hit");
         }
