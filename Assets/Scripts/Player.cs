@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
     {
         if(vida == 0)
         {
+            anim.Play("Anima_morte");
             Destroy(this.gameObject, 0.3f);
         }
     }
@@ -88,7 +89,6 @@ public class Player : MonoBehaviour
         }
         if (colisao.gameObject.CompareTag("Espinho"))
         {
-            anim.SetBool("hit", true);
             vida = vida - 1;
             anim.Play("Anima_hit");
         }
